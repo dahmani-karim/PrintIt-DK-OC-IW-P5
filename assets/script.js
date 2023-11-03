@@ -38,8 +38,8 @@ let activePosition = document.getElementById(p);
 activePosition.classList.add("dot_selected");
 
 // récupération des éléments HTML
-const clickLeft = document.getElementById("left"); //flèche gauche
-const clickRight = document.getElementById("right"); //flèche droite
+const clickLeft = document.getElementById("leftArrow"); //flèche gauche
+const clickRight = document.getElementById("rightArrow"); //flèche droite
 const bannerIMG = document.querySelector(".banner-img"); //image
 const bannerTagline = document.getElementById("tagLine"); //Tagline
 
