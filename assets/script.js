@@ -24,9 +24,6 @@ const slideCounter = slides.length;
 // selection de la div parent pour insérer les bulletPoints
 const bulletPoints = document.querySelector(".dots");
 
-// variable permettant de ne pas écraser la valeur de slideCounter
-let i = slideCounter;
-
 // ajout du nombre de bulletpoints nécessaire
 for (let i = 0; i < slideCounter; i++) {
 	const newBulletPoint = document.createElement("span");
@@ -36,7 +33,7 @@ for (let i = 0; i < slideCounter; i++) {
 }
 
 // initialisation du bulletPoint selected
-let p = 1;
+let currentSlide = 1;
 let activePosition = document.getElementById(p);
 activePosition.classList.add("dot_selected");
 
@@ -47,29 +44,29 @@ const bannerIMG = document.querySelector(".banner-img"); //image
 const bannerTagline = document.getElementById("tagLine"); //Tagline
 
 // fonction de MAJ des éléments de la bannière
-function bannerMAJ () {
+function bannerMAJ() {
 	//ininite loop
-	if (p < 1) {
-		p = slides.length;
-	} else if (p > slides.length) {
-		p = 1;
+	if (currentSlide < 1) {
+		currentSlide = slideCounter;
+	} else if (currentSlide > slideCounter) {
+		currentSlide = 1;
 	}
-	activePosition = document.getElementById(p);
+	activePosition = document.getElementById(currentSlide);
 	activePosition.classList.add("dot_selected");
-	bannerIMG.src = "./assets/images/slideshow/"+slides[p-1].image;
-	bannerTagline.innerHTML = slides[p-1].tagLine;
+	bannerIMG.src = "./assets/images/slideshow/"+slides[currentSlide-1].image;
+	bannerTagline.innerHTML = slides[currentSlide-1].tagLine;
 }
 
 // fonction au click sur la flèche droite
 clickRight.addEventListener("click", function() {
 	activePosition.classList.remove("dot_selected");
-	p ++;
-	bannerMAJ ();
+	currentSlide++;
+	bannerMAJ();
 });
 
 // fonction au clique sur la flèche gauche
 clickLeft.addEventListener("click", function() {
 	activePosition.classList.remove("dot_selected");
-	p --;
-	bannerMAJ ();
+	currentSlide--;
+	bannerMAJ();
 });
