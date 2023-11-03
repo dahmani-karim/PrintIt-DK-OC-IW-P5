@@ -34,7 +34,7 @@ for (let i = 0; i < slideCounter; i++) {
 
 // initialisation du bulletPoint selected
 let currentSlide = 1;
-let activePosition = document.getElementById(p);
+let activePosition = document.getElementById(currentSlide);
 activePosition.classList.add("dot_selected");
 
 // récupération des éléments HTML
