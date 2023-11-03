@@ -51,6 +51,7 @@ function bannerMAJ() {
 	} else if (currentSlide > slideCounter) {
 		currentSlide = 1;
 	}
+	activePosition.classList.remove("dot_selected");
 	activePosition = document.getElementById("dot"+currentSlide);
 	activePosition.classList.add("dot_selected");
 	bannerIMG.src = "./assets/images/slideshow/"+slides[currentSlide-1].image;
@@ -59,14 +60,12 @@ function bannerMAJ() {
 
 // fonction au click sur la flèche droite
 clickRight.addEventListener("click", function() {
-	activePosition.classList.remove("dot_selected");
 	currentSlide++;
 	bannerMAJ();
 });
 
 // fonction au clique sur la flèche gauche
 clickLeft.addEventListener("click", function() {
-	activePosition.classList.remove("dot_selected");
 	currentSlide--;
 	bannerMAJ();
 });
