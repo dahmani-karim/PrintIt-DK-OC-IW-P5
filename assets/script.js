@@ -29,12 +29,12 @@ for (let i = 0; i < slideCounter; i++) {
 	const newBulletPoint = document.createElement("span");
 	bulletPoints.appendChild(newBulletPoint);
 	newBulletPoint.classList.add("dot");
-	newBulletPoint.id =i+1;
+	newBulletPoint.id ="dot"+(i+1);
 }
 
 // initialisation du bulletPoint selected
 let currentSlide = 1;
-let activePosition = document.getElementById(currentSlide);
+let activePosition = document.getElementById("dot"+currentSlide);
 activePosition.classList.add("dot_selected");
 
 // récupération des éléments HTML
@@ -51,7 +51,7 @@ function bannerMAJ() {
 	} else if (currentSlide > slideCounter) {
 		currentSlide = 1;
 	}
-	activePosition = document.getElementById(currentSlide);
+	activePosition = document.getElementById("dot"+currentSlide);
 	activePosition.classList.add("dot_selected");
 	bannerIMG.src = "./assets/images/slideshow/"+slides[currentSlide-1].image;
 	bannerTagline.innerHTML = slides[currentSlide-1].tagLine;
